@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import BookList from './BookList';
+import BookForm from './BookForm';
 
 function App() {
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+    getBooks();
+  }, [])
+
+  const getBooks = async () =>{
+    try {
+      let result = await axios.get("https://fakerapi.it/api/v1/books?_quantity=5")
+      console.log(result.data.data)
+      setBooks(result.data.data)
+    } catch (err) {
+      alert("error")
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Tom's Book App</h1>
+      <BookForm />
+      <BookList books={books}/>
     </div>
   );
 }
