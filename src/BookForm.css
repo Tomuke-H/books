@@ -3,10 +3,9 @@ form {
     flex-direction: row;
     width: 350px;
     height: auto;
-    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
     padding: 20px;
     margin-left: 10px;
-    background-color: white;
+    background-color: #1F2833;
 }
 
 textarea {
