@@ -25,11 +25,16 @@ function App() {
     setBooks(newBooks)
   }
 
+  const deleteBook = (isbn) => {
+    let newBooks = books.filter(b => b.isbn !== isbn)
+    setBooks(newBooks)
+  }
+
   return (
     <div>
       <h1>Tom's Book App</h1>
       <BookForm func={addBook}/>
-      <BookList books={books}/>
+      <BookList books={books} deleteBook={deleteBook}/>
     </div>
   );
 }
