@@ -30,11 +30,16 @@ function App() {
     setBooks(newBooks)
   }
 
+  const updateBook = (book) => {
+    let updatedBooks = books.map(b => b.isbn === book.isbn ? book : b)
+    setBooks(updatedBooks)
+  }
+
   return (
     <div>
       <h1>Tom's Book App</h1>
-      <BookForm func={addBook}/>
-      <BookList books={books} deleteBook={deleteBook}/>
+      <BookForm addBook={addBook}/>
+      <BookList books={books} deleteBook={deleteBook} updateBook={updateBook}/>
     </div>
   );
 }
