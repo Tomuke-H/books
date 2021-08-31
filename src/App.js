@@ -20,10 +20,15 @@ function App() {
     }
   }
 
+  const addBook = (newBook) => {
+    let newBooks = [newBook, ...books]
+    setBooks(newBooks)
+  }
+
   return (
     <div>
       <h1>Tom's Book App</h1>
-      <BookForm />
+      <BookForm func={addBook}/>
       <BookList books={books}/>
     </div>
   );

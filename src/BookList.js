@@ -9,6 +9,7 @@ const BookList = (props) => {
                     <h2>{`Title: ${b.title}`}</h2>
                     <h3>{`By: ${b.author}`}</h3>
                     <h3>{`Genre: ${b.genre}`}</h3>
+                    <h3>{`ISBN: ${b.isbn}`}</h3>
                 </div>
             )
         })
