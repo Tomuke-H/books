@@ -1,0 +1,22 @@
+.book {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 800px;
+}
+
+.bookInfo {
+    width: 350px;
+    height: auto;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    padding: 20px;
+    background-color: white;
+}
+
+.editButton {
+    height: 40px;
+    width: 80px;
+}
+

@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import BookList from './BookList';
 import BookForm from './BookForm';
+import './App.css';
 
 function App() {
   const [books, setBooks] = useState([])
+  const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
     getBooks();
@@ -36,9 +38,12 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Tom's Book App</h1>
-      <BookForm addBook={addBook}/>
+    <div className="app">
+      <h1 className="title">Tom's Book App</h1>
+      <div className="addWrapper">
+        <button onClick={()=> setShowForm(!showForm)} className="addButton">Add Book?</button>
+        {showForm && <BookForm addBook={addBook} setShowForm={setShowForm} />}
+      </div>
       <BookList books={books} deleteBook={deleteBook} updateBook={updateBook}/>
     </div>
   );
